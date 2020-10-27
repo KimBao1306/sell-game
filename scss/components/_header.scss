@@ -1,0 +1,274 @@
+.header {
+	position: relative;
+	width: 100%;
+	z-index: 900;
+	@include transition($t2);
+
+	&__top {
+		display: flex;
+		background-color: rgba($color: $black-cl, $alpha: 0.5);
+		border-bottom: 2px solid $border-cl;
+		> div:not(.header__menu-2) {
+			transform: skewX(-20deg);
+			border-right: 3px solid $border-cl;
+			> div,
+			> p,
+			> ul {
+				transform: skewX(20deg);
+			}
+		}
+		> div:nth-child(n + 3) {
+			border-right: 0;
+		}
+	}
+	&__user {
+		width: 26.236881%;
+		display: flex;
+		align-items: center;
+		padding: 5px;
+	}
+	&__avatar {
+		margin-right: 25px;
+		padding-top: 10px;
+		padding-left: 5px;
+		width: 84px;
+		height: 84px;
+		border: 3px solid rgba($color: $white-cl, $alpha: 0.45);
+		border-radius: 15px;
+		background: rgb(99, 108, 144);
+		background: radial-gradient(
+			circle,
+			rgba(99, 108, 144, 1) 0%,
+			rgba(0, 0, 0, 0.8015581232492998) 100%
+		);
+		img {
+			height: 100%;
+			width: 100%;
+		}
+	}
+	&__usn {
+		color: $second-cl;
+		font-weight: bold;
+		margin-bottom: 15px;
+		@include fz-28;
+	}
+	&__uid {
+		@include fz-26;
+	}
+	&__score {
+		width: 30%;
+		max-width: 100%;
+		@include fz-50;
+		text-align: center;
+		@include mid-flex;
+	}
+	&__noti {
+		flex-grow: 1;
+		padding: 0 30px 0 60px;
+		display: flex;
+		align-items: center;
+		.bell {
+			margin-right: 75px;
+			position: relative;
+			@include fz-50;
+			cursor: pointer;
+			&:hover {
+				animation: bellShake $t3;
+			}
+			&-num {
+				position: absolute;
+				top: -10%;
+				right: -25%;
+				width: 38px;
+				height: 38px;
+				@include fz-24;
+				border: 3px solid $black-cl;
+				background-color: red;
+				border-radius: 100%;
+				color: $white-cl;
+				font-family: 'hel';
+				@include mid-flex;
+			}
+		}
+		.online {
+			margin-right: auto;
+			color: #00ff90;
+			@include fz-22;
+			i {
+				margin-right: 13px;
+			}
+		}
+	}
+	&__menu-2 {
+		position: fixed;
+		top: 0;
+		right: 0;
+		height: 100vh;
+		width: 340px;
+		max-width: 100%;
+		z-index: 904;
+		transform: translateX(100%);
+		transition: $t1;
+		ul {
+			height: 100%;
+			background-color: rgba($color: $black-cl, $alpha: 0.8);
+			border-left: 3px solid $border-cl;
+			overflow-y: scroll;
+			@include custom-scrollbar(0);
+		}
+		li {
+			border-bottom: 1px solid $border-cl;
+			&:first-child {
+				.hamburger-btn {
+					margin-left: auto;
+				}
+				padding: 30px;
+			}
+		}
+		a {
+			padding: 32px 0 32px 30px;
+			font-weight: bold;
+			text-transform: uppercase;
+			@include fz-28;
+		}
+		&-volume {
+			@include mid-flex;
+			> div {
+				display: flex;
+				margin-left: auto;
+				a {
+					position: relative;
+					color: #585858;
+					padding: 10px;
+					transition: $t1;
+					@include mid-flex;
+					&:hover {
+						color: $white-cl;
+					}
+					&:first-child:after {
+						content: '/';
+						position: absolute;
+						right: -8px;
+						top: 50%;
+						color: #585858;
+						transform: translateY(-50%);
+					}
+				}
+			}
+		}
+		&.--active {
+			transform: translateX(0);
+		}
+	}
+	&__bottom {
+		border-bottom: 3px solid $border-cl;
+	}
+	/* ONLY FOR HEADER LIST */
+	&__list {
+		margin: 0 37.5px;
+		@include flex(row, flex-start, center);
+		> li {
+			padding: 20px 22.5px;
+			white-space: nowrap;
+			> a {
+				position: relative;
+				font-family: 'GT';
+				text-transform: uppercase;
+				@include fz-22;
+				@include transition($t1);
+				@include lh(17, 14);
+				@include flex(row, space-between, center);
+				&::after {
+					display: none;
+					content: '';
+					position: absolute;
+					bottom: -26px;
+					left: 0;
+					width: 100%;
+					height: 4px;
+					border: 2px solid $white-cl;
+					border-radius: 999px;
+					background-color: #7ee8ff;
+					box-shadow: 0 0 30px 10px rgba($color: #7ee8ff, $alpha: 1);
+				}
+			}
+			&.--active {
+				> a {
+					color: $second-cl;
+					&:after {
+						display: block;
+					}
+				}
+			}
+
+			//chỉ hover trên laptop
+			@include min-media(1024px) {
+				&:hover {
+					> a {
+						color: $second-cl;
+					}
+				}
+			}
+		}
+	}
+	/* ONLY FOR HEADER LIST - END */
+
+	//menu scroll
+	&.--fixed {
+		position: fixed;
+		height: 80px;
+		@include animation(fixedMenu $t2);
+		.logo {
+			width: 44px;
+			height: 44px;
+		}
+	}
+
+	@include max-media(1024px) {
+		&__bottom {
+			overflow: scroll hidden;
+			@include custom-vertical-scrollbar(5px);
+		}
+		&__avatar {
+			margin-right: 10px;
+		}
+		&__user {
+			width: 32%;
+		}
+		&__noti {
+			.bell {
+				margin-right: 35px;
+			}
+		}
+	}
+	@include max-media(768px) {
+		&__user {
+			width: 40%;
+		}
+		&__score p,
+		.bell,
+		.online {
+			display: none;
+		}
+		&__score {
+			flex-grow: 1;
+		}
+		&__noti {
+			flex-grow: 0;
+		}
+		&__mobile {
+			margin-left: auto;
+		}
+	}
+	@include max-media(500px) {
+		&__user {
+			width: 80%;
+		}
+		&__score {
+			display: none;
+		}
+		&__noti {
+			padding: 0 30px;
+		}
+	}
+}

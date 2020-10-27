@@ -1,0 +1,154 @@
+//custom swiper for project
+.is-slider {
+	position: relative;
+	.swiper-container {
+		overflow: hidden;
+	}
+	&.swiper-1 {
+		.swiper-pagination {
+			display: none;
+		}
+		@media screen and (max-width: 768px) and (orientation: portrait) {
+			.swiper-pagination {
+				display: block;
+				bottom: -40px;
+			}
+		}
+	}
+	&.is-slider-detail-thumbs {
+		.swiper-wrapper {
+			margin: 0 -2.5px;
+		}
+		.swiper-slide {
+			padding: 0 2.5px;
+		}
+	}
+}
+//Custom lại các nút của swiper
+.swiper-button-wrap {
+	display: flex;
+	position: absolute;
+	bottom: 0;
+	z-index: 2;
+	left: 0;
+	.swiper-button-prev,
+	.swiper-button-next {
+		position: static;
+		color: #fff;
+		margin-top: 0;
+		width: 60px;
+		height: 60px;
+		display: inline-flex;
+	}
+	.swiper-button-prev {
+		background-color: $second-cl;
+		&:hover {
+			background-color: $main-cl;
+		}
+		&::after {
+			content: '\f104';
+		}
+	}
+	.swiper-button-next {
+		// margin-left: 5px;
+		background-color: $main-cl;
+		&:hover {
+			background-color: $second-cl;
+		}
+		&::after {
+			content: '\f105';
+		}
+	}
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+	position: absolute;
+	width: 70px;
+	height: 70px;
+	cursor: pointer;
+	transition: $t1;
+	outline: none;
+	margin-top: -35px;
+	img {
+		width: auto;
+		height: 100%;
+		object-fit: contain;
+	}
+	&::after,
+	&::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0.4;
+		background-repeat: no-repeat;
+		background-size: contain;
+	}
+	&::after {
+		opacity: 0.2;
+	}
+}
+.swiper-button-prev {
+	left: 0;
+	&:hover {
+		transform: translateX(-10px);
+	}
+	&::before {
+		left: 30px;
+		background-image: url(../images/slider-arrow-prev.png);
+	}
+	&::after {
+		left: 45px;
+		background-image: url(../images/slider-arrow-prev.png);
+	}
+}
+.swiper-button-next {
+	right: 0;
+	&:hover {
+		transform: translateX(10px);
+	}
+	&::before {
+		right: 30px;
+		background-image: url(../images/slider-arrow-next.png);
+		background-position: right;
+	}
+	&::after {
+		right: 45px;
+		background-image: url(../images/slider-arrow-next.png);
+		background-position: right;
+	}
+}
+
+//custome lại pagination
+.swiper-pagination {
+	// display: none;
+	// position: absolute;
+	// bottom: -10px !important;
+}
+.swiper-pagination-bullet {
+	width: 25px;
+	height: 25px;
+	background-color: #535362;
+	opacity: 1;
+	@include br(100%);
+}
+.swiper-pagination-bullet-active {
+	background-color: $white-cl;
+}
+//custome lại các slide: thêm padding vào cho các slide
+.swiper-wrapper {
+	margin: -15px;
+	width: auto;
+	.swiper-slide {
+		padding: 15px;
+		height: auto;
+	}
+	@include max-media(768px) {
+		margin: -7.5px;
+		.swiper-slide {
+			padding: 7.5px;
+		}
+	}
+}

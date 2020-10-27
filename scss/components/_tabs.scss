@@ -1,0 +1,34 @@
+.tabs {
+	display: flex;
+	> div {
+		transform: skewX(-20deg);
+		border-right: 1px solid $border-cl;
+		&:last-child {
+			border-right: 0;
+		}
+	}
+	p {
+		color: #585858;
+		padding: 20px 16px;
+		transition: $t1;
+		transform: skewX(20deg);
+		text-transform: uppercase;
+		font-weight: bold;
+	}
+	p.--active {
+		color: $white-cl;
+	}
+}
+// .tabs-2 {
+// 	position: absolute;
+// }
+.tab-link {
+	cursor: pointer;
+}
+.tab-content {
+	display: none;
+	&.--active {
+		display: block;
+		animation: fadeInUp $t2 forwards;
+	}
+}

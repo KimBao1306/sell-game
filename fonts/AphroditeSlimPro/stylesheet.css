@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'HLT AphroditeSlimPro';
+    src: url('HLTAphroditeSlimPro.eot');
+    src: url('HLTAphroditeSlimPro.eot?#iefix') format('embedded-opentype'),
+        url('HLTAphroditeSlimPro.woff2') format('woff2'),
+        url('HLTAphroditeSlimPro.woff') format('woff'),
+        url('HLTAphroditeSlimPro.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

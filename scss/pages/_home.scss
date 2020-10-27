@@ -1,0 +1,139 @@
+.wrapper {
+	position: relative;
+	background-image: url(../images/bg.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+.main {
+	height: calc(100vh - 170px);
+	@include max-media(500px) {
+		height: 100%;
+	}
+}
+.main__wrap {
+	height: 100%;
+	position: relative;
+	z-index: 1;
+	padding: 45px 30px;
+	@include mid-flex;
+
+	.swiper-container {
+		overflow: visible;
+	}
+	.swiper-wrapper {
+		margin: 0;
+	}
+	.swiper-slide {
+		padding: 0;
+	}
+	.swiper-grid {
+		max-width: 1045px;
+		margin: 0 auto;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-gap: 30px;
+	}
+	.swiper-pagination {
+		display: none;
+	}
+	.game {
+		&.--big {
+			grid-row: 1 / span 2;
+		}
+		&.--big:nth-child(1) {
+			grid-column-start: 4;
+		}
+		&.--big:nth-child(2) {
+			grid-column-start: 5;
+		}
+		@include max-media(768px) {
+			&.--big:nth-child(1) {
+				grid-column-start: 3;
+			}
+			&.--big:nth-child(2) {
+				grid-row: 3 / span 2;
+				grid-column-start: 2;
+			}
+			&.--hidden {
+				display: block;
+			}
+		}
+	}
+	@include max-media(1200px) {
+		.swiper-grid {
+			max-width: 950px;
+		}
+	}
+	@media screen and (max-width: 768px) {
+	}
+	@include max-media(1024px) {
+		.is-slider,
+		.swiper-container {
+			height: 100%;
+		}
+		.swiper-slide {
+			@include mid-flex;
+		}
+		.swiper-grid {
+			max-width: 800px;
+		}
+		// .swiper-button-prev {
+		// 	left: -35px;
+		// }
+		// .swiper-button-next {
+		// 	right: -35px;
+		// }
+	}
+	@include max-media(992px) {
+		.swiper-grid {
+			max-width: 700px;
+		}
+	}
+	// @include max-media(900px) {
+	// 	.swiper-grid {
+	// 		max-width: 700px;
+	// 	}
+	// }
+	@include max-media(768px) {
+		.swiper-grid {
+			height: 100%;
+			max-width: 500px;
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	// @include max-media(650px) {
+	// 	.swiper-wrapper {
+	// 		flex-direction: column;
+	// 	}
+	// 	.swiper-slide {
+	// 		margin-bottom: 30px;
+	// 	}
+	// 	.swiper-button-next,
+	// 	.swiper-button-prev,
+	// 	.swiper-pagination {
+	// 		display: none !important;
+	// 	}
+	// 	.swiper-grid {
+	// 		grid-gap: 15px;
+	// 	}
+	// }
+	// ONLY FOR IPAD PRO PORTRAIT
+	@media only screen and (min-device-width: 1024px) and (max-device-height: 1366px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+		.swiper-grid {
+			// height: 100%;
+			// max-width: 500px;
+			grid-template-columns: repeat(3, 1fr);
+		}
+		.game.--big:nth-child(1) {
+			grid-column-start: 3;
+		}
+		.game.--big:nth-child(2) {
+			grid-row: 3 / span 2;
+			grid-column-start: 2;
+		}
+		.game.--hidden {
+			display: block;
+		}
+	}
+}

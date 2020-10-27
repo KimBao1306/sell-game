@@ -1,0 +1,36 @@
+/* FONTS */
+@import url('../fonts/HelveticaNeue/stylesheet.css');
+@import url('../fonts/Gilroy/stylesheet.css');
+@import url('../fonts/GoodTimes/stylesheet.css');
+@import url('../fonts/AphroditeSlimPro/stylesheet.css');
+@import url('../fonts/SFDisplayPro/stylesheet.css');
+/* LIBRARIES */
+@import url('../js/Font-awesome-4.7.0/css/font-awesome.min.css');
+@import url('../js/swiper-5.4.3/package/css/swiper.min.css');
+@import url('../js/Magnific-Popup-master/magnific-popup.css');
+@import url('../js/flatpickr/flatpickr.min.css');
+
+// @import url('../js/lightgallery.js-master/dist/css/lightgallery.min.css');
+
+/* Core variables and mixins */
+@import './core/reset';
+@import './core/variables';
+@import './core/mixins';
+@import './core/base';
+@import './core/animation';
+@import './core/mona';
+
+/* Components */
+@import './components/sec';
+@import './components/header';
+@import './components/customSwiper';
+@import './components/button';
+@import './components/overlay';
+@import './components/form-control';
+@import './components/tabs';
+@import './components/popup';
+@import './components/game';
+
+/* Pages */
+@import './pages/home';
+@import './pages/login';

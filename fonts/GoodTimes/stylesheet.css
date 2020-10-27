@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'GT';
+    src: url('GoodTimesRg-Regular.eot');
+    src: url('GoodTimesRg-Regular.eot?#iefix') format('embedded-opentype'),
+        url('GoodTimesRg-Regular.woff2') format('woff2'),
+        url('GoodTimesRg-Regular.woff') format('woff'),
+        url('GoodTimesRg-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

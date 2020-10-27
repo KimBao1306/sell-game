@@ -1,0 +1,219 @@
+.login-wrapper {
+	background-image: url(../images/login-bg.png);
+	&::after {
+		display: none;
+	}
+}
+.login {
+	--bd-radius: 10px;
+	max-width: 600px;
+	min-height: 100%;
+	padding: 20px;
+	margin: auto;
+	margin-right: -125px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
+	.title {
+		align-self: center;
+		margin-bottom: 30px;
+		font-family: 'HLT AphroditeSlimPro';
+		text-shadow: 0 0 40px #fff;
+		// @include fz-65;
+		font-size: 65px;
+	}
+	form {
+		width: 100%;
+		transform: skewX(-15deg);
+		@include fz-32;
+	}
+	.f-group {
+		margin-bottom: 10px;
+		transform: skewX(15deg);
+	}
+	label {
+		display: inline-block;
+		width: 100%;
+		transform: skewX(-15deg);
+		border: 3px solid #fff;
+		border-radius: var(--bd-radius);
+		box-shadow: 0 0 18px rgba($color: #885fff, $alpha: 0.9),
+			inset 0 0 21px rgba($color: #885fff, $alpha: 0.9);
+		background: rgba($color: $black-cl, $alpha: 0.8);
+	}
+	input {
+		padding: 20px 45px;
+		height: 68px;
+		color: $white-cl;
+		border: 0;
+		border-radius: inherit;
+		background-color: transparent;
+		transform: skewX(15deg);
+		&::placeholder {
+			color: $white-cl;
+		}
+	}
+	.code {
+		display: flex;
+		label {
+			width: 250px;
+		}
+		> div {
+			border-radius: var(--bd-radius);
+			transform: skewX(-15deg);
+			background-color: #36326c;
+			&:nth-child(2) {
+				margin: 0 5px;
+			}
+		}
+		p,
+		a {
+			width: 100px;
+			height: 100%;
+			padding: 10px;
+			transform: skewX(15deg);
+			@include mid-flex;
+		}
+		p {
+			font-weight: bold;
+			color: $second-cl;
+		}
+	}
+	.submit-group {
+		display: flex;
+		margin-bottom: 0;
+		> div {
+			border-radius: var(--bd-radius);
+			transform: skewX(-15deg);
+			cursor: pointer;
+			&:nth-child(2) {
+				margin: 0 5px;
+			}
+		}
+		> div:first-child {
+			position: relative;
+			width: 250px;
+			max-width: 100%;
+			height: 72px;
+			border-radius: var(--bd-radius);
+			transform: skewX(-6deg);
+			background-image: url(../images/login-button.png);
+			background-size: cover;
+			background-position: center;
+			@include mid-flex;
+		}
+		> div:nth-child(n + 2) {
+			width: 100px;
+			flex-shrink: 0;
+			@include mid-flex;
+		}
+		> div:nth-child(2) {
+			margin-left: 0;
+			background: rgb(10, 101, 181);
+			background: linear-gradient(
+				180deg,
+				rgba(10, 101, 181, 1) 0%,
+				rgba(64, 226, 255, 1) 100%
+			);
+		}
+		> div:nth-child(3) {
+			background: rgb(205, 58, 43);
+			background: linear-gradient(
+				180deg,
+				rgba(205, 58, 43, 1) 0%,
+				rgba(255, 146, 92, 1) 100%
+			);
+		}
+		button,
+		p {
+			font-family: 'SF Pro Display';
+			color: transparent;
+			border: none;
+			font-weight: bold;
+			background-color: transparent;
+			transform: skewX(6deg);
+			text-transform: uppercase;
+			cursor: pointer;
+			outline: none;
+			@include fz-32;
+		}
+		button {
+			width: 100%;
+			height: 100%;
+			text-shadow: 2px 2px 3px #fff8af, -2px -2px 3px #fff8af;
+		}
+		p {
+			pointer-events: none;
+			position: absolute;
+			background-image: linear-gradient(
+				180deg,
+				rgba($color: #4e2300, $alpha: 1) 0%,
+				rgba($color: #b88416, $alpha: 0.8) 100%
+			);
+			text-shadow: 1px 1px 2px rgba($color: #000, $alpha: 0.16);
+			background-clip: text;
+			color: transparent;
+			-webkit-background-clip: text;
+			background-repeat: no-repeat;
+		}
+		i {
+			transform: skewX(15deg);
+		}
+	}
+
+	@include max-media(500px) {
+		& {
+			width: 100%;
+			margin-right: 0;
+		}
+		input {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		.submit-group > div:nth-child(2) {
+			margin-left: 5px;
+		}
+		* {
+			transform: none !important;
+		}
+	}
+	@media screen and (max-width: 768px) and (orientation: landscape),
+		screen and (device-width: 812px) and (device-height: 375px) and (-webkit-device-pixel-ratio: 3),
+		screen and (device-width: 812px) and (device-height: 375px) and (-webkit-device-pixel-ratio: 3) {
+		.title {
+			margin-bottom: 15px;
+			font-size: 30px;
+		}
+		form {
+			@include fz-16;
+		}
+		.f-group {
+			margin-bottom: 5px;
+		}
+		input {
+			padding: 10px 23px;
+			height: 34px;
+		}
+		.code {
+			p,
+			a {
+				padding: 0;
+			}
+			img {
+				height: 50%;
+				width: auto;
+			}
+		}
+		.submit-group {
+			> div:first-child {
+				height: 36px;
+				filter: drop-shadow(0 0 6px #fff8af);
+			}
+			button,
+			p {
+				@include fz-16;
+			}
+		}
+	}
+}
